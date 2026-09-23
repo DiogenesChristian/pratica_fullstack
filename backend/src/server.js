@@ -17,16 +17,21 @@ app.get("/", (req, res) => {
 app.use("/usuarios", userRoutes);
 app.use("/pindorama", pindoramaRoutes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT) || 3000;
 const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/crud_usuarios";
+  process.env.MONGODB_URI ||
+  process.env.MONGODB_URI_PROD ||
+  process.env.mongodb_prod_uri ||
+  "mongodb://127.0.0.1:27017/crud_usuarios";
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
 
 mongoose
   .connect(MONGODB_URI)
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Servidor rodando em http://localhost:${PORT}`);
-    });
+    console.log("Conectado ao MongoDB");
   })
   .catch((error) => {
     console.error("Erro ao conectar ao MongoDB:", error.message);
