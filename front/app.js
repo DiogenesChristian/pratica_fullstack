@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/usuarios";
+const API_URL = "https://pratica-fullstack.onrender.com/usuarios";
 
 const formulario = document.querySelector("#form-usuario");
 const campoId = document.querySelector("#usuario-id");
@@ -14,7 +14,7 @@ const formularioBusca = document.querySelector("#form-busca");
 const campoBuscaId = document.querySelector("#busca-id");
 
 // Pindorama elements
-const API_URL_PIN = "http://localhost:3001/pindorama";
+const API_URL_PIN = "https://pratica-fullstack.onrender.com/pindorama";
 const formPindorama = document.querySelector("#form-pindorama");
 const campoPindoramaId = document.querySelector("#pindorama-id");
 const campoPindoramaUser = document.querySelector("#pindorama-user");
